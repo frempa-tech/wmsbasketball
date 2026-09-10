@@ -34,6 +34,36 @@ nav{
     z-index:1000;
 }
 
+.home-btn{
+    position:fixed;
+    top:18px;
+    left:20px;
+    z-index:1004;
+    background:#ff7b00;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:14px;
+    box-shadow:0 4px 14px rgba(255,123,0,.35);
+    transition:.2s;
+    animation:pulseGlow 3s ease-in-out infinite;
+}
+
+.home-btn:hover{
+    box-shadow:0 6px 18px rgba(255,123,0,.5);
+    transform:translateY(-1px);
+}
+
+.home-btn svg{
+    width:22px;
+    height:22px;
+    fill:white;
+    display:block;
+}
+
 .nav-toggle-wrap{
     position:fixed;
     top:18px;
@@ -210,7 +240,8 @@ nav a{
     min-height:80vh;
 
     background:
-    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.75)),
+    radial-gradient(ellipse at center 40%, rgba(255,123,0,.12), transparent 60%),
+    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.8)),
     url("backround.jpg");
 
     background-size:cover;
@@ -255,7 +286,7 @@ nav a{
     color:#ff7b00;
     font-weight:900;
     margin-bottom:18px;
-    text-shadow:0 4px 20px rgba(0,0,0,.6);
+    text-shadow:0 4px 30px rgba(255,123,0,.35), 0 4px 20px rgba(0,0,0,.6);
     letter-spacing:-1px;
 }
 
@@ -272,6 +303,175 @@ nav a{
     flex-wrap:wrap;
     justify-content:center;
     margin-top:45px;
+}
+
+/* Divider */
+
+.section-divider{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    max-width:1000px;
+    margin:70px auto 0;
+    padding:0 10px;
+}
+
+.section-divider .line{
+    flex:1;
+    height:1px;
+    background:linear-gradient(90deg, transparent, rgba(255,123,0,.5));
+}
+
+.section-divider .line.right{
+    background:linear-gradient(90deg, rgba(255,123,0,.5), transparent);
+}
+
+.section-divider .dot{
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    background:#ff7b00;
+    box-shadow:0 0 12px rgba(255,123,0,.7);
+    flex-shrink:0;
+}
+
+/* Home - Quick Links */
+
+.home-section{
+    max-width:1000px;
+    margin:40px auto 0;
+}
+
+.section-heading{
+    text-align:center;
+    color:#ff7b00;
+    font-size:14px;
+    font-weight:800;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    opacity:.85;
+    margin-bottom:8px;
+}
+
+.section-subheading{
+    text-align:center;
+    color:#777;
+    font-size:15px;
+    margin-bottom:30px;
+}
+
+.quick-links{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:22px;
+}
+
+.quick-card{
+    background-size:cover;
+    background-position:center;
+    border-radius:14px;
+    padding:200px 26px 26px;
+    cursor:pointer;
+    transition:.25s;
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(255,123,0,.18);
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+}
+
+.quick-card.games{
+    background-image:linear-gradient(180deg, rgba(17,17,17,.15) 0%, rgba(17,17,17,.75) 55%, #171717 100%), url("courts.jpg");
+}
+
+.quick-card.playoffs{
+    background-image:linear-gradient(180deg, rgba(17,17,17,.15) 0%, rgba(17,17,17,.75) 55%, #171717 100%), url("blacktop.jpg");
+}
+
+.quick-card.teams{
+    background-image:linear-gradient(180deg, rgba(17,17,17,.15) 0%, rgba(17,17,17,.75) 55%, #171717 100%), url("teams.jpg");
+}
+
+.quick-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:4px;
+    background:linear-gradient(90deg, transparent, #ff7b00, transparent);
+    opacity:.7;
+    transition:.25s;
+    z-index:2;
+}
+
+.quick-card:hover{
+    transform:translateY(-5px);
+    border-color:rgba(255,123,0,.5);
+    box-shadow:0 12px 28px rgba(0,0,0,.45), 0 0 0 1px rgba(255,123,0,.15);
+}
+
+.quick-card:hover::before{
+    opacity:1;
+    box-shadow:0 0 14px rgba(255,123,0,.6);
+}
+
+.quick-card .icon-wrap{
+    width:50px;
+    height:50px;
+    border-radius:12px;
+    background:rgba(255,123,0,.18);
+    backdrop-filter:blur(4px);
+    border:1px solid rgba(255,123,0,.4);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:18px;
+    transition:.25s;
+}
+
+.quick-card:hover .icon-wrap{
+    background:rgba(255,123,0,.3);
+}
+
+.quick-card svg{
+    width:28px;
+    height:28px;
+    fill:none;
+    stroke:#ff7b00;
+    stroke-width:1.8;
+    margin-bottom:0;
+}
+
+.quick-card h3{
+    color:#ff7b00;
+    font-size:22px;
+    letter-spacing:.5px;
+    margin-bottom:10px;
+}
+
+.quick-card p{
+    color:#aaa;
+    font-size:15px;
+    line-height:1.55;
+    margin-bottom:18px;
+}
+
+.quick-card .arrow{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    color:#ff7b00;
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    transition:.2s;
+}
+
+.quick-card:hover .arrow{
+    gap:10px;
 }
 
 .button{
@@ -544,6 +744,12 @@ footer{
 
 @media(max-width:700px){
 
+    .home-btn{
+        top:14px;
+        left:14px;
+        padding:12px;
+    }
+
     .nav-toggle-wrap{
         top:14px;
         right:14px;
@@ -611,6 +817,22 @@ footer{
         grid-template-columns:repeat(auto-fill, minmax(130px, 1fr));
     }
 
+    .quick-links{
+        grid-template-columns:1fr;
+    }
+
+    .quick-card{
+        padding:150px 22px 22px;
+    }
+
+    .section-divider{
+        margin-top:45px;
+    }
+
+    .home-section{
+        margin-top:30px;
+    }
+
 }
 
 </style>
@@ -619,6 +841,11 @@ footer{
 <body>
 
 <nav>
+    <button class="home-btn" onclick="showPage('home')" aria-label="Home">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3z"/>
+        </svg>
+    </button>
     <div class="nav-toggle-wrap">
         <span class="nav-label" id="navLabel">Navigation</span>
         <button class="hamburger" id="hamburgerBtn" onclick="toggleMenu()" aria-label="Toggle menu">
@@ -649,9 +876,48 @@ footer{
 
 <p>Follow every game, every score, and every team roster all in one place.</p>
 
-<div class="hero-buttons">
-    <button class="button outline" onclick="showPage('games')">View Games</button>
-    <button class="button outline" onclick="showPage('teams')">Meet the Teams</button>
+</div>
+
+<div class="section-divider">
+    <span class="line"></span>
+    <span class="dot"></span>
+    <span class="line right"></span>
+</div>
+
+<div class="home-section">
+
+<div class="section-heading">Where to Next</div>
+<p class="section-subheading">Jump straight to what you're looking for</p>
+
+<div class="quick-links">
+
+    <div class="quick-card games" onclick="showPage('games')">
+        <div class="icon-wrap">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 4 6 4 9s-1.5 6.3-4 9M12 3c-2.5 2.7-4 6-4 9s1.5 6.3 4 9M4.6 7.5c2 1.4 4.7 2.2 7.4 2.2s5.4-.8 7.4-2.2M4.6 16.5c2-1.4 4.7-2.2 7.4-2.2s5.4.8 7.4 2.2"/></svg>
+        </div>
+        <h3>Games</h3>
+        <p>Catch up on schedules, scores, and watch links from this season.</p>
+        <span class="arrow">View Games →</span>
+    </div>
+
+    <div class="quick-card playoffs" onclick="showPage('playoffs')">
+        <div class="icon-wrap">
+            <svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M5 4h14v3a7 7 0 0 1-14 0V4z"/><path d="M5 5H2v2a4 4 0 0 0 4 4M19 5h3v2a4 4 0 0 1-4 4"/></svg>
+        </div>
+        <h3>Playoffs</h3>
+        <p>See who's fighting for the title as the postseason unfolds.</p>
+        <span class="arrow">View Playoffs →</span>
+    </div>
+
+    <div class="quick-card teams" onclick="showPage('teams')">
+        <div class="icon-wrap">
+            <svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.6"/><path d="M2.5 20c.5-3.6 2.9-6 5.5-6s5 2.4 5.5 6M14.8 20c.3-2.6 1.9-4.6 4-5"/></svg>
+        </div>
+        <h3>Teams</h3>
+        <p>Browse every roster and meet the players on each squad.</p>
+        <span class="arrow">View Teams →</span>
+    </div>
+
 </div>
 
 </div>
